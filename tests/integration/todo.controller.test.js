@@ -29,7 +29,7 @@ describe(endPointUrl, () => {
       const response = await request(app)
         .get(`${endPointUrl}?search=unit`);
       const todoItem = response.body.todos;
-      console.log('todoItem', todoItem, response.body);
+
       if (typeof todoItem.length !== 'undefined' && todoItem.length !== 0) {
         const { _id } = todoItem[0];
         await request(app)
@@ -73,7 +73,7 @@ describe(endPointUrl, () => {
       .get(`${endPointUrl}?search=PUT`);
     // eslint-disable-next-line no-underscore-dangle
     const id = answer.body.todos[0]._id;
-    console.log('id', id);
+
     if (id !== 'undefined') {
       const response = await request(app)
         .put(endPointUrl)

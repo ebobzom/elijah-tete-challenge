@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node -r esm server.js",
-    "test": "jest --watchAll",
-    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info"
+    "test": "jest",
+    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
