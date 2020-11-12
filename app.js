@@ -8,8 +8,7 @@ import todoRoutes from './routes/todo.routes';
 import connectToDatabase from './config/mogodb.connect';
 
 dotEnv.config();
-
-const PORT = process.env.PORT || 3000;
+const baseUrl = process.env.BASE_URL;
 
 connectToDatabase();
 const app = express();
@@ -21,7 +20,7 @@ app.use(xss());
 app.use(hpp());
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: false }));
-app.use('/api/v1/todos', todoRoutes); // TODO move to env
+app.use(baseUrl, todoRoutes); // TODO move to env
 
 app.use('*', (req, res) => res.status(404).json({
   status: 'error',
@@ -32,10 +31,5 @@ app.use((error, req, res, next) => res.status(500).json({
   status: 'error',
   message: error.message,
 }));
-
-// app.listen(PORT, () => {
-//   // eslint-disable-next-line no-console
-//   console.log(`app running on port ${PORT}`);
-// });
 
 export default app;

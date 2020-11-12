@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ebobzom/elijah-tete-challenge.svg?branch=master)](https://travis-ci.org/ebobzom/elijah-tete-challenge)
+[![Coverage Status](https://coveralls.io/repos/github/ebobzom/elijah-tete-challenge/badge.svg?branch=master)](https://coveralls.io/github/ebobzom/elijah-tete-challenge?branch=master)
 # TETE Challenge
 
 ## This is a simple BACKEND API allowing users to perform the follow.
@@ -20,6 +22,6 @@ Documentation for this API is found [HERE](https://documenter.getpostman.com/vie
 1. clone this repository.
 2. `cd` into the directory.
 3. run `npm install` or `yarn install`.
-4. create a `.env` file in the root of your directory. Inside it create a variable BAE_URL and assign it your base url.
+4. create a `.env` file in the root of your directory. Inside it create a variable BASE_URL and assign it your base url also add a MONGODB_URI variable forhosting purposes.
 5. Go to `config/mogodb.connect.js` and add your `mongodb url`.
 6. run `npm run start` or `yarn start`.

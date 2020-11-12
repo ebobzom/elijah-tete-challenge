@@ -1,10 +1,10 @@
 {
   "name": "elijah-backend-challenge",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "start": "node -r esm server.js",
+    "start": "pm2-runtime start ecosystem.config.js --env production",
     "test": "jest --forceExit",
     "test:coveralls": "jest --forceExit --coverage --coverageReporters=text-lcov | coveralls"
   },
