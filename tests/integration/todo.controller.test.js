@@ -127,3 +127,8 @@ describe(endPointUrl, () => {
     expect(response.body.status).toBe('error');
   });
 });
+
+afterAll(async (done) => {
+  // Closing the DB connection allows Jest to exit successfully;
+  done();
+});
