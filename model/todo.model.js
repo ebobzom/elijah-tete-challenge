@@ -21,7 +21,7 @@ const todoSchema = new mongoose.Schema({
     required: true,
   },
 }, { versionKey: false });
-
+todoSchema.index({ title: 'text' });
 const TodoModel = mongoose.model('Todo', todoSchema);
 
 export default TodoModel;
