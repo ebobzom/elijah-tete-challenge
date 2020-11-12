@@ -30,7 +30,7 @@ describe(endPointUrl, () => {
         .get(`${endPointUrl}?search=unit`)
         .send(newTodo);
       const todoItem = response.body.todos;
-      if (todoItem.length) {
+      if (typeof todoItem.length !== 'undefined') {
         const { _id } = response.body.todos[0];
         await request(app)
           .delete(`${endPointUrl}/${_id}`);
