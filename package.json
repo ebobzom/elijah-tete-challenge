@@ -4,7 +4,7 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "start": "node server.js",
     "test": "jest --forceExit",
     "test:coveralls": "jest --forceExit --coverage --coverageReporters=text-lcov | coveralls"
   },
