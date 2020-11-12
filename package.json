@@ -4,7 +4,7 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js",
+    "start": "node -r esm server.js",
     "test": "jest --forceExit",
     "test:coveralls": "jest --forceExit --coverage --coverageReporters=text-lcov | coveralls"
   },
