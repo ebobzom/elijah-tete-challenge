@@ -33,9 +33,9 @@ app.use((error, req, res, next) => res.status(500).json({
   message: error.message,
 }));
 
-app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`app running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   // eslint-disable-next-line no-console
+//   console.log(`app running on port ${PORT}`);
+// });
 
 export default app;
