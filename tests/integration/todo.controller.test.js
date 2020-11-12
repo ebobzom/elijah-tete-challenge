@@ -7,7 +7,7 @@ const endPointUrl = process.env.BASE_URL;
 
 describe(endPointUrl, () => {
   beforeEach(async () => {
-    await request(app)
+    const PutValue = await request(app)
       .post(endPointUrl)
       .send({
         title: 'PUT oo',
@@ -15,13 +15,17 @@ describe(endPointUrl, () => {
         dueDate: '2020-12-11T23:00:00.000Z',
       });
 
-    await request(app)
+    console.log('put value', PutValue.body);
+
+    const deleteValue = await request(app)
       .post(endPointUrl)
       .send({
         title: 'DELETE oo',
         completed: false,
         dueDate: '2020-12-11T23:00:00.000Z',
       });
+
+    console.log('delete value', deleteValue.body);
   });
 
   test(`GET ${endPointUrl}`, async () => {

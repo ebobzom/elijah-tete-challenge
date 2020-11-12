@@ -9,6 +9,8 @@ import connectToDatabase from './config/mogodb.connect';
 
 dotEnv.config();
 
+const PORT = process.env.PORT || 3000;
+
 connectToDatabase();
 const app = express();
 
@@ -30,5 +32,10 @@ app.use((error, req, res, next) => res.status(500).json({
   status: 'error',
   message: error.message,
 }));
+
+app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
+  console.log(`app running on port ${PORT}`);
+});
 
 export default app;
