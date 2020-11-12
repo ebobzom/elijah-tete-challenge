@@ -34,6 +34,7 @@
   "directories": {
     "test": "tests"
   },
+  "engines" : { "node" : "12" },
   "author": "",
   "description": ""
 }
