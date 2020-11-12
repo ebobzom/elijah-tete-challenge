@@ -7,7 +7,7 @@ const endPointUrl = process.env.BASE_URL;
 
 describe(endPointUrl, () => {
   beforeEach(async () => {
-    const PutValue = await request(app)
+    await request(app)
       .post(endPointUrl)
       .send({
         title: 'PUT oo',
@@ -15,28 +15,22 @@ describe(endPointUrl, () => {
         dueDate: '2020-12-11T23:00:00.000Z',
       });
 
-    console.log('put value', PutValue.body);
-
-    const deleteValue = await request(app)
+    await request(app)
       .post(endPointUrl)
       .send({
         title: 'DELETE oo',
         completed: false,
         dueDate: '2020-12-11T23:00:00.000Z',
       });
-
-    console.log('delete value', deleteValue.body);
   });
 
   test(`GET ${endPointUrl}`, async () => {
     afterEach(async () => {
       const response = await request(app)
-        .get(`${endPointUrl}?search=unit`)
-        .send(newTodo);
+        .get(`${endPointUrl}?search=unit`);
       const todoItem = response.body.todos;
-      console.log('todoItem', todoItem);
+      console.log('todoItem', todoItem, response.body);
       if (typeof todoItem.length !== 'undefined' && todoItem.length !== 0) {
-        console.log('inside detail', todoItem);
         const { _id } = todoItem[0];
         await request(app)
           .delete(`${endPointUrl}/${_id}`);
